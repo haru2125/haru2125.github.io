@@ -43,6 +43,19 @@ body.normal-font {
     z-index: 1;
 }
 
+#container #card ._img ~ #edit_banner {
+    position: absolute;
+    margin-left: -25px;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+body.own_mode #container #card ._img:hover ~ #edit_banner, body.own_mode #container #card ._img ~ #edit_banner:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 #container #card #_av {
     position: relative;
     width: 100px;
@@ -56,6 +69,39 @@ body.normal-font {
     border: 8px solid hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
     margin-top: -75px;
     z-index: 2;
+}
+
+#container #card #_av ~ #edit_avatar {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    margin-top: -92px;
+}
+
+body.own_mode #container #card #_av ~ #edit_avatar .icon {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    pointer-events: auto!important;
+    cursor: pointer;
+    z-index: 3;
+    transition: opacity .2s;
+    display: flex;
+    opacity: 0;
+}
+
+body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
+    opacity: 1;
+}
+
+#container #card #_av ~ #edit_avatar .icon i {
+    margin: auto;
+    font-size: 25px;
 }
 
 #container #card #_e1 {
@@ -100,6 +146,39 @@ body.normal-font {
     margin-right: 10px;
     margin-top: 5px;
     cursor: pointer;
+}
+
+#container #card #badge_tooltip {
+    position: absolute;
+    background-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin-left: -92px;
+    margin-top: 65px;
+    opacity: 0;
+    pointer-events: none;
+    transition:opacity .2s;
+    font-size: 14px;
+}
+
+#container #card #badge_tooltip.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#container #card #badge_tooltip #badge_tooltip_arrow {
+    position: absolute;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+    margin-top: 27px;
+    margin-left: -60px;
+}
+
+@media (max-width:600px) {
+    #container #card #badge_tooltip {
+        display: none;
+    }
 }
 
 #container #card #_e2 {
@@ -185,7 +264,7 @@ body.normal-font {
     margin: auto;
 }
 
-#switch_font {
+.btn {
     position: fixed;
     top: 15px;
     right: 15px;
@@ -197,8 +276,23 @@ body.normal-font {
     padding: 5px 15px;
     cursor: pointer;
     transition: background-color .3s;
+    display: flex;
 }
 
-#switch_font:hover {
+.btn:hover {
     background-color: #000000;
+}
+
+.beta_feature {
+    background-color: hsl(235,calc(var(--saturation-factor, 1)*85.6%),64.7%);
+    padding: 0 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    font-size: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.beta_feature::after {
+    content: 'BETA';
 }
