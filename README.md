@@ -3,15 +3,15 @@ Profile Card Version Discord :)
 
 - Dark Mode :
 
-![Dark mode](https://user-images.githubusercontent.com/101871896/193403887-47ddcc05-cb24-4ed9-8d44-a872f4b962c8.png)
+![Dark mode](https://user-images.githubusercontent.com/101871896/193411623-9b2432a8-7ff8-4b6a-b6ba-588825fb2c3f.png)
 
 - Light Mode :
 
-![Light mode](https://user-images.githubusercontent.com/101871896/193403899-8de319c4-4255-4602-a464-53bab3598343.png)
+![Light mode](https://user-images.githubusercontent.com/101871896/193411651-2a4695b9-c068-4243-b1f3-e609aab21734.png)
 
 - Custom Profile Theme (Beta) :
 
-![Custom](https://user-images.githubusercontent.com/101871896/193403910-3e09fa6b-c6e8-4316-9b07-50d043ecbd93.png)
+![Custom 2022-10-01 202350](https://user-images.githubusercontent.com/101871896/193411656-3cad389a-4ed5-446d-9043-405ade92fe69.png)
 
 
 Demo : [Here](https://haru2125.github.io/)
