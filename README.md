@@ -2,7 +2,7 @@
 Profile Card Version Discord :)
 
 
-![Screenshot 2022-09-25 143216](https://user-images.githubusercontent.com/101871896/192133207-5d42ec7a-1d0d-4533-a0a0-258783e4fd02.png)
+![Theme](https://user-images.githubusercontent.com/101871896/193395392-07c18ec1-5226-48f2-8c2d-5aa30adb003b.png)
 
 
 Demo : [Here](https://haru2125.github.io/)
