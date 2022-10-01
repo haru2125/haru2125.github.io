@@ -1,20 +1,18 @@
-const loading_effect = true;
+const light_mode = false;
 
-const mode_normal_btn = `Switch mode <span class="beta_feature"></span>`;
+const custom_profile_theme = { // required light mode
+    "enabled": false,
+    "border": "#bf9b85",
+    "background": "#e8ded9"
+};
+
+const loading_effect = true;
 
 if (loading_effect) {
     setTimeout(function () {
         document.getElementById('load').classList.add('baymau');
     }, 2000);
 }
-
-// document.getElementById('switch_font').addEventListener('click', function () {
-//     if (document.getElementById('theme').classList.contains('normal-font')) {
-//         document.getElementById('theme').classList.remove('normal-font');
-//     } else {
-//         document.getElementById('theme').classList.add('normal-font');
-//     }
-// });
 
 // click('switch_mode', function () {
 //     if (document.getElementById('theme').classList.contains('own_mode')) {
@@ -26,21 +24,75 @@ if (loading_effect) {
 //     }
 // });
 
+if (light_mode) {
+    classManager('switch_mode', 'light');
+    getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
+} else {
+    getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
+}
+
+click('switch_mode', function () {
+    if (classManager('card', 'light-theme', 'find')) {
+        classManager('card', 'light-theme', 'remove');
+        classManager('switch_mode', 'light', 'remove');
+        getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
+    } else {
+        classManager('card', 'light-theme', 'add');
+        classManager('switch_mode', 'light', 'add');
+        getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
+    }
+});
+
 hover('badge_1', function () {
-    document.getElementById('badge_tooltip').classList.add('show');
+    classManager('badge_tooltip', 'show');
 }, function () {
-    document.getElementById('badge_tooltip').classList.remove('show');
+    classManager('badge_tooltip', 'show', 'remove');
 });
 
 click('badge_1', function () {
-    alert("Developer Badge");
+    // alert("Developer Badge");
+    // * update soon *
 });
 
+if (light_mode) {
+    classManager('card', 'light-theme');
+}
+
+if (custom_profile_theme.enabled) {
+    getId('switch_mode').style.display = 'none';
+
+    classManager('card', 'custom');
+
+    getId('card').setAttribute('style', 
+        '--p-bg-color:' + custom_profile_theme.background
+        + ';' +
+        '--p-b-color:' + custom_profile_theme.border
+        + ';'
+    );
+}
+
+function getId(id) {
+    return document.getElementById(id);
+}
+
 function hover(id, mouseenter, mouseleave) {
-    document.getElementById(id).addEventListener('mouseenter', mouseenter);
-    document.getElementById(id).addEventListener('mouseleave', mouseleave);
+    getId(id).addEventListener('mouseenter', mouseenter);
+    getId(id).addEventListener('mouseleave', mouseleave);
 }
 
 function click(id, event) {
-    document.getElementById(id).addEventListener('click', event);
+    getId(id).addEventListener('click', event);
+}
+
+function classManager(id, classname, type = 'add') {
+    switch (type) {
+        case 'add':
+            return getId(id).classList.add(classname);
+        case 'remove':
+            return getId(id).classList.remove(classname);
+        case 'find':
+            return getId(id).classList.contains(classname);
+        default:
+            return false;
+    }
 }
