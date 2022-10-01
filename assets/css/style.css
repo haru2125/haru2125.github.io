@@ -2,6 +2,9 @@
 
 :root {
     --saturation-factor:1;
+    --profile-gradient-primary-color: hsl(220,calc(var(--saturation-factor, 1)*6.8%),17.3%);
+    --profile-gradient-secondary-color: hsl(220,calc(var(--saturation-factor, 1)*6.8%),17.3%);
+    --v: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
 }
 
 * {
@@ -33,7 +36,7 @@ body.normal-font {
 
 #container #card {
     width: 300px;
-    background-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+    background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-primary-color) 120px,var(--profile-gradient-secondary-color));
     border-radius: 8px;
 }
 
@@ -51,22 +54,17 @@ body.normal-font {
     transition: opacity .2s;
 }
 
-body.own_mode #container #card ._img:hover ~ #edit_banner, body.own_mode #container #card ._img ~ #edit_banner:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
 #container #card #_av {
     position: relative;
     width: 100px;
     height: 100px;
     margin-left: auto;
     margin-right:auto;
-    background-image: url('../img/avatar.jpg');
+    background-image: url('https://cdn.discordapp.com/avatars/973245695433793566/a_0f1c9130440ae1f395def98b99a192a3.gif');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    border: 8px solid hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+    border: 8px solid var(--profile-gradient-primary-color);
     margin-top: -75px;
     z-index: 2;
 }
@@ -81,31 +79,18 @@ body.own_mode #container #card ._img:hover ~ #edit_banner, body.own_mode #contai
     margin-top: -92px;
 }
 
-body.own_mode #container #card #_av ~ #edit_avatar .icon {
-    background-color: rgba(0, 0, 0, 0.4);
-    position: relative;
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    pointer-events: auto!important;
-    cursor: pointer;
-    z-index: 3;
-    transition: opacity .2s;
-    display: flex;
-    opacity: 0;
-}
-
-body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
-    opacity: 1;
-}
-
 #container #card #_av ~ #edit_avatar .icon i {
     margin: auto;
     font-size: 25px;
 }
 
+#container #card #_e_bg {
+    background-color: var(--v);
+    margin:10px 16px 20px 16px;
+    border-radius: 8px;
+}
+
 #container #card #_e1 {
-    margin-top: -10px;
     padding: 1rem 16px;
     display: flex;
     width: 100%;
@@ -138,13 +123,23 @@ body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
 }
 
 #container #card #badge {
-    width: 25px;
-    height: 25px;
-    background-image: url('../img/badge.svg');
-    background-size: cover;
+    width: 32px;
+    height: 32px;
     margin-left: auto;
     margin-right: 10px;
     margin-top: 5px;
+    background-color: var(--v);
+    border-radius: 8px;
+    padding: 4px;
+    display: flex;
+}
+
+#container #card #badge #badge_1 {
+    width: 23px;
+    height: 23px;
+    background-image: url('../img/badge.svg');
+    background-size: cover;
+    margin: auto;
     cursor: pointer;
 }
 
@@ -157,13 +152,15 @@ body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
     margin-top: 65px;
     opacity: 0;
     pointer-events: none;
-    transition:opacity .2s;
+    transition:opacity .1s, transform .1s;
     font-size: 14px;
+    transform: scale(0.95);
 }
 
 #container #card #badge_tooltip.show {
     opacity: 1;
     pointer-events: auto;
+    transform: scale(1);
 }
 
 #container #card #badge_tooltip #badge_tooltip_arrow {
@@ -201,7 +198,7 @@ body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
 
 #container #card .divider {
     height: 1px;
-    background-color: hsla(217,calc(var(--saturation-factor, 1)*7.6%),33.5%,0.48);
+    background-color: var(--profile-gradient-primary-color);
 }
 
 #container #card #_e2 #about_me {
@@ -209,6 +206,10 @@ body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
     font-size: 12px;
     color: hsl(216,calc(var(--saturation-factor, 1)*3.7%),73.5%);
     text-align: center;
+}
+
+#container #card #_e3 {
+    padding-bottom: 15px;
 }
 
 #container #card #_e3 #social_link {
@@ -219,14 +220,13 @@ body.own_mode #container #card #_av ~ #edit_avatar .icon:hover {
 }
 
 #container #card #_e3.have_divider {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 20px;
 }
 
 #container #card #_e3 #list_social {
-    margin-top: 15px;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 
 #container #card #_e3 #list_social a {

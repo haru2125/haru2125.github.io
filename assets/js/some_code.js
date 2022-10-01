@@ -16,24 +16,24 @@ if (loading_effect) {
 //     }
 // });
 
-click('switch_mode', function () {
-    if (document.getElementById('theme').classList.contains('own_mode')) {
-        document.getElementById('theme').classList.remove('own_mode');
-        this.innerHTML = mode_normal_btn;
-    } else {
-        document.getElementById('theme').classList.add('own_mode');
-        this.innerHTML = "Go back to old mode";
-    }
-});
+// click('switch_mode', function () {
+//     if (document.getElementById('theme').classList.contains('own_mode')) {
+//         document.getElementById('theme').classList.remove('own_mode');
+//         this.innerHTML = mode_normal_btn;
+//     } else {
+//         document.getElementById('theme').classList.add('own_mode');
+//         this.innerHTML = "Go back to old mode";
+//     }
+// });
 
-hover('badge', function () {
+hover('badge_1', function () {
     document.getElementById('badge_tooltip').classList.add('show');
 }, function () {
     document.getElementById('badge_tooltip').classList.remove('show');
 });
 
-click('badge', function () {
-    window.open("https://discord.com/developers");
+click('badge_1', function () {
+    alert("Developer Badge");
 });
 
 function hover(id, mouseenter, mouseleave) {
