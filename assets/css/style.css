@@ -38,6 +38,8 @@ body {
     width: 300px;
     background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-primary-color) 120px,var(--profile-gradient-secondary-color));
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 #container #card.light-theme {
@@ -146,66 +148,114 @@ body {
     display: none;
 }
 
-#container #card #badge {
-    width: 32px;
-    height: 32px;
-    margin-left: auto;
-    margin-right: 10px;
-    margin-top: 5px;
-    background-color: var(--v);
-    border-radius: 8px;
-    padding: 4px;
+#container #card .badge {
     display: flex;
+    flex-wrap: wrap;
+    margin-left:1px;
+    margin-right: 1px;
+    z-index: 8;
 }
 
-#container #card.light-theme #badge {
+#container #card .badges {
+    padding: 4px;
+    margin-left: auto;
+    margin-right: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    max-width: 85px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--v);
+}
+
+#container #card.light-theme .badges {
     background-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
 }
 
-#container #card.custom.light-theme #badge {
+#container #card.custom.light-theme .badges {
     background-color: var(--p-beta);
 }
 
-#container #card #badge #badge_1 {
+#container #card .badge #badge_1 {
     width: 23px;
     height: 23px;
-    background-image: url('../img/badge.svg');
+    background-image: url('../img/dev_badge.svg');
     background-size: cover;
     margin: auto;
     cursor: pointer;
 }
 
-#container #card #badge_tooltip {
+#container #card .badge #badge_2{
+    width: 23px;
+    height: 23px;
+    background-image: url('../img/hypersquad_badge.svg');
+    background-size: cover;
+    margin: auto;
+    cursor: pointer;
+}
+
+#container #card .badge #badge_3{
+    width: 23px;
+    height: 23px;
+    background-image: url('../img/nitro_badge.svg');
+    background-size: cover;
+    margin: auto;
+    cursor: pointer;
+}
+
+/* #container #card .badge #badge_4{
+    width: 23px;
+    height: 23px;
+    background-image: url('../img/test.svg');
+    background-size: cover;
+    margin: auto;
+    cursor: pointer;
+} */
+
+#container #card .badge .badge_tooltip {
     position: absolute;
     background-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
     border-radius: 8px;
     padding: 5px 10px;
-    margin-left: -92px;
-    margin-top: 65px;
     opacity: 0;
     pointer-events: none;
     transition:opacity .1s, transform .1s;
     font-size: 14px;
-    transform: scale(0.95);
+    transform: translateX(-50%) scale(0.9);
+    margin-top: -55px;
+    margin-left: 13px;
+    z-index: 9;
 }
 
-#container #card #badge_tooltip.show {
+#container #card .badge_tooltip.show {
     opacity: 1;
     pointer-events: auto;
-    transform: scale(1);
+    transform: translateX(-50%) scale(1.05);
 }
 
-#container #card #badge_tooltip #badge_tooltip_arrow {
+#container #card .badge_tooltip::after {
+    content: " ";
     position: absolute;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
-    margin-top: 27px;
-    margin-left: -60px;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%) transparent transparent transparent;
 }
 
-@media (max-width:600px) {
-    #container #card #badge_tooltip {
+#container #card:not(.custom).light-theme .badge .badge_tooltip {
+    color: hsl(240,calc(var(--saturation-factor, 1)*7.7%),2.5%);
+    background-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
+}
+
+#container #card:not(.custom).light-theme .badge .badge_tooltip::after {
+    border-color: hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%) transparent transparent transparent;
+}
+
+@media (max-width:375px) {
+    #container #card .badge_tooltip {
         display: none;
     }
 }

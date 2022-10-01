@@ -44,21 +44,39 @@ click('switch_mode', function () {
 });
 
 hover('badge_1', function () {
-    classManager('badge_tooltip', 'show');
+    classManager('badge_tooltip_1', 'show');
 }, function () {
-    classManager('badge_tooltip', 'show', 'remove');
+    classManager('badge_tooltip_1', 'show', 'remove');
 });
 
-click('badge_1', function () {
-    // alert("Developer Badge");
-    // * update soon *
+hover('badge_2', function () {
+    classManager('badge_tooltip_2', 'show');
+}, function () {
+    classManager('badge_tooltip_2', 'show', 'remove');
 });
+
+hover('badge_3', function () {
+    classManager('badge_tooltip_3', 'show');
+}, function () {
+    classManager('badge_tooltip_3', 'show', 'remove');
+});
+
+// hover('badge_4', function () {
+//     classManager('badge_tooltip_4', 'show');
+// }, function () {
+//     classManager('badge_tooltip_4', 'show', 'remove');
+// });
+
+// click('badge_1', function () {
+//     // alert("Developer Badge");
+//     // * update soon *
+// });
 
 if (light_mode) {
     classManager('card', 'light-theme');
 }
 
-if (custom_profile_theme.enabled) {
+if (custom_profile_theme.enabled && light_mode) {
     getId('switch_mode').style.display = 'none';
 
     classManager('card', 'custom');
