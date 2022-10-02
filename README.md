@@ -19,3 +19,5 @@ Profile Card Version Discord :)
 
 
 Demo : [Here](https://haru2125.github.io/)
+
+Demo (Custom) : [Here](https://mizuto2509.github.io/)
