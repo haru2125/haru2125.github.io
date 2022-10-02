@@ -1,6 +1,6 @@
 const light_mode = false;
 
-const custom_profile_theme = { // required light mode
+const custom_profile_theme = { // Custom Profile Theme Dark/Light mode
     "enabled": false,
     "border": "#bf9b85",
     "background": "#e8ded9"
@@ -76,7 +76,11 @@ if (light_mode) {
     classManager('card', 'light-theme');
 }
 
-if (custom_profile_theme.enabled && light_mode) {
+if (custom_profile_theme.enabled) {
+    if (!light_mode) {
+        classManager('card', 'dark-theme');
+    }
+
     getId('switch_mode').style.display = 'none';
 
     classManager('card', 'custom');
