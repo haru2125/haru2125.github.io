@@ -81,6 +81,7 @@ body {
 
 #container #card #_av {
     position: relative;
+    left: 0;
     width: 100px;
     height: 100px;
     margin-left: auto;
@@ -92,6 +93,11 @@ body {
     border: 8px solid var(--profile-gradient-primary-color);
     margin-top: -95px;
     z-index: 2;
+    transition: left .3s;
+}
+
+#container #card #_av.to-left {
+    left: -84px;
 }
 
 #container #card.custom #_av {
@@ -378,7 +384,6 @@ body {
 .btn {
     position: fixed;
     top: 15px;
-    right: 15px;
     background-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
     color: #fff;
     border: 0;
@@ -394,6 +399,15 @@ body {
     background-color: #000000;
 }
 
+.btn:not(.btn-2) {
+    right: 15px;
+}
+
+.btn.btn-2 {
+    padding: 5px 10px;
+    left: 15px;
+}
+
 .btn.light {
     background-color: hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%);
     color: #000000;
@@ -405,9 +419,10 @@ body {
 
 .beta_feature {
     background-color: hsl(235,calc(var(--saturation-factor, 1)*85.6%),64.7%);
-    padding: 0 5px;
-    border-radius: 3px;
-    margin-left: 5px;
+    padding: 0 6px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-left: 4px;
     font-size: 12px;
     margin-top: auto;
     margin-bottom: auto;

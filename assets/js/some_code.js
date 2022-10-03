@@ -2,8 +2,8 @@ const light_mode = false;
 
 const custom_profile_theme = { // Custom Profile Theme Dark/Light mode
     "enabled": false,
-    "border": "#bf9b85",
-    "background": "#e8ded9"
+    "border": "#3496ff",
+    "background": "#a8d0fb"
 };
 
 const loading_effect = true;
@@ -31,6 +31,12 @@ if (light_mode) {
     getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
 }
 
+if (classManager('_av', 'to-left', 'find')) {
+    getId('av_to_left').innerHTML = `Avatar to center`;
+} else {
+    getId('av_to_left').innerHTML = `Avatar to left <span class="beta_feature"></span>`;
+}
+
 click('switch_mode', function () {
     if (classManager('card', 'light-theme', 'find')) {
         classManager('card', 'light-theme', 'remove');
@@ -40,6 +46,16 @@ click('switch_mode', function () {
         classManager('card', 'light-theme', 'add');
         classManager('switch_mode', 'light', 'add');
         getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
+    }
+});
+
+click('av_to_left', function () {
+    if (classManager('_av', 'to-left', 'find')) {
+        classManager('_av', 'to-left', 'remove');
+        getId('av_to_left').innerHTML = `Avatar to left <span class="beta_feature"></span>`;
+    } else {
+        classManager('_av', 'to-left', 'add');
+        getId('av_to_left').innerHTML = `Avatar to center`;
     }
 });
 
