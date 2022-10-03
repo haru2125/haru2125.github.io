@@ -17,6 +17,10 @@ Profile Card Version Discord :)
 
 ![Custom 2](https://user-images.githubusercontent.com/101871896/193439409-4f84d6b6-2dce-4855-9c81-f36bee4e777d.png)
 
+- Avatar to left (Beta) :
+
+![Avatar to left](https://user-images.githubusercontent.com/101871896/193525455-6b9185a0-6d5e-4a53-abd6-bdea08f017f6.png)
+
 
 Demo : [Here](https://haru2125.github.io/)
 
