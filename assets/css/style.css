@@ -176,6 +176,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--v);
+    transition: max-width .3s;
+}
+
+#container #card .badges.left-toggle {
+    max-width: 100%;
 }
 
 #container #card.light-theme .badges {
@@ -208,6 +213,15 @@ body {
     width: 23px;
     height: 23px;
     background-image: url('../img/nitro_badge.svg');
+    background-size: cover;
+    margin: auto;
+    cursor: pointer;
+}
+
+#container #card .badge #badge_4{
+    width: 23px;
+    height: 23px;
+    background-image: url('../img/boost_badge.svg');
     background-size: cover;
     margin: auto;
     cursor: pointer;
@@ -399,12 +413,15 @@ body {
     background-color: #000000;
 }
 
+.btn:disabled {
+    display: none;
+}
+
 .btn:not(.btn-2) {
     right: 15px;
 }
 
 .btn.btn-2 {
-    padding: 5px 10px;
     left: 15px;
 }
 

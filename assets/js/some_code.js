@@ -26,25 +26,34 @@ if (loading_effect) {
 
 if (light_mode) {
     classManager('switch_mode', 'light');
+    classManager('av_to_left', 'light', 'add');
     getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
 } else {
     getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
 }
 
 if (classManager('_av', 'to-left', 'find')) {
-    getId('av_to_left').innerHTML = `Avatar to center`;
+    getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
 } else {
-    getId('av_to_left').innerHTML = `Avatar to left <span class="beta_feature"></span>`;
+    getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
+}
+
+if (getId('left-toggle').getElementsByClassName('badge').length > 3) {
+    classManager('_av', 'to-left', 'add');
+    classManager('left-toggle', 'left-toggle', 'add');
+    getId('av_to_left').setAttribute('disabled', '');
 }
 
 click('switch_mode', function () {
     if (classManager('card', 'light-theme', 'find')) {
         classManager('card', 'light-theme', 'remove');
         classManager('switch_mode', 'light', 'remove');
+        classManager('av_to_left', 'light', 'remove');
         getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
     } else {
         classManager('card', 'light-theme', 'add');
         classManager('switch_mode', 'light', 'add');
+        classManager('av_to_left', 'light', 'add');
         getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
     }
 });
@@ -52,41 +61,32 @@ click('switch_mode', function () {
 click('av_to_left', function () {
     if (classManager('_av', 'to-left', 'find')) {
         classManager('_av', 'to-left', 'remove');
-        getId('av_to_left').innerHTML = `Avatar to left <span class="beta_feature"></span>`;
+        classManager('left-toggle', 'left-toggle', 'remove');
+        getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
     } else {
+        classManager('left-toggle', 'left-toggle', 'add');
         classManager('_av', 'to-left', 'add');
-        getId('av_to_left').innerHTML = `Avatar to center`;
+        getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
     }
 });
 
-hover('badge_1', function () {
-    classManager('badge_tooltip_1', 'show');
-}, function () {
-    classManager('badge_tooltip_1', 'show', 'remove');
-});
+var badges = document.getElementsByClassName("badge");
 
-hover('badge_2', function () {
-    classManager('badge_tooltip_2', 'show');
-}, function () {
-    classManager('badge_tooltip_2', 'show', 'remove');
-});
+var hover_tooltip_1 = function() {
+    this.querySelector('.badge_tooltip').classList.add('show');
+};
 
-hover('badge_3', function () {
-    classManager('badge_tooltip_3', 'show');
-}, function () {
-    classManager('badge_tooltip_3', 'show', 'remove');
-});
+var hover_tooltip_2 = function() {
+    this.querySelector('.badge_tooltip').classList.remove('show');
+};
 
-// hover('badge_4', function () {
-//     classManager('badge_tooltip_4', 'show');
-// }, function () {
-//     classManager('badge_tooltip_4', 'show', 'remove');
-// });
+for (var i = 0; i < badges.length; i++) {
+    badges[i].addEventListener('mouseenter', hover_tooltip_1, false);
+}
 
-// click('badge_1', function () {
-//     // alert("Developer Badge");
-//     // * update soon *
-// });
+for (var i = 0; i < badges.length; i++) {
+    badges[i].addEventListener('mouseleave', hover_tooltip_2, false);
+}
 
 if (light_mode) {
     classManager('card', 'light-theme');
@@ -113,13 +113,10 @@ function getId(id) {
     return document.getElementById(id);
 }
 
-function hover(id, mouseenter, mouseleave) {
-    getId(id).addEventListener('mouseenter', mouseenter);
-    getId(id).addEventListener('mouseleave', mouseleave);
-}
-
 function click(id, event) {
-    getId(id).addEventListener('click', event);
+    if (getId(id)) {
+        getId(id).addEventListener('click', event);
+    }
 }
 
 function classManager(id, classname, type = 'add') {
