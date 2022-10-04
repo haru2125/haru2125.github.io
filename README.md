@@ -17,10 +17,13 @@ Profile Card Version Discord :)
 
 ![Custom 2](https://user-images.githubusercontent.com/101871896/193439409-4f84d6b6-2dce-4855-9c81-f36bee4e777d.png)
 
-- Avatar to left (Beta) :
+- Avatar to left :
 
-![Avatar to left](https://user-images.githubusercontent.com/101871896/193525455-6b9185a0-6d5e-4a53-abd6-bdea08f017f6.png)
+![Avatar to left](https://user-images.githubusercontent.com/101871896/193730383-554d1b13-a9de-4e49-a26b-7290195913ed.png)
 
+- 4 badges or higher :
+
+![4 badges](https://user-images.githubusercontent.com/101871896/193730483-910ef2bb-3283-41ef-b344-ae8b6596b7d9.png)
 
 Demo : [Here](https://haru2125.github.io/)
 
