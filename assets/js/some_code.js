@@ -6,6 +6,11 @@ const custom_profile_theme = { // Custom Profile Theme Dark/Light mode
     "background": "#a8d0fb"
 };
 
+const avatar_decoration = {
+    "enabled": true,
+    "decoration_type": 4
+}
+
 const loading_effect = true;
 
 if (loading_effect) {
@@ -36,6 +41,11 @@ if (classManager('_av', 'to-left', 'find')) {
     getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
 } else {
     getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
+}
+
+if (avatar_decoration.enabled) {
+    classManager('_av_decoration', 'active', 'add');
+    getId('_av_decoration').setAttribute('decoration_type', avatar_decoration.decoration_type);
 }
 
 if (getId('left-toggle').getElementsByClassName('badge').length > 3) {
