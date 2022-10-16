@@ -25,6 +25,10 @@ Profile Card Version Discord :)
 
 ![4 badges](https://user-images.githubusercontent.com/101871896/193730483-910ef2bb-3283-41ef-b344-ae8b6596b7d9.png)
 
+- Avatar decoration :
+
+![Avatar Decoration](https://user-images.githubusercontent.com/101871896/196020199-9b194293-13cb-4b39-a10a-286e9c34b864.png)
+
 Demo : [Here](https://haru2125.github.io/)
 
 Demo (Custom) : [Here](https://mizuto2509.github.io/)
