@@ -65,18 +65,12 @@ body {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     z-index: 1;
+    width:100%;
+    height: 120px;
 }
 
 #container #card.custom ._img {
     border-radius: 4px 4px 0 0;
-}
-
-#container #card ._img ~ #edit_banner {
-    position: absolute;
-    margin-left: -25px;
-    margin-top: 8px;
-    opacity: 0;
-    transition: opacity .2s;
 }
 
 #container #card #_av {
