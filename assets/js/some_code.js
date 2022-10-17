@@ -1,5 +1,7 @@
 const light_mode = false;
 
+const old_card_ver = false;
+
 const custom_profile_theme = { // Custom Profile Theme Dark/Light mode
     "enabled": false,
     "border": "#3496ff",
@@ -32,15 +34,20 @@ if (loading_effect) {
 if (light_mode) {
     classManager('switch_mode', 'light');
     classManager('av_to_left', 'light', 'add');
-    getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
-} else {
     getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
+} else {
+    getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
 }
 
 if (classManager('_av', 'to-left', 'find')) {
-    getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
-} else {
     getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
+} else {
+    getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
+}
+
+if (old_card_ver) {
+    classManager('card', 'old_ver', 'add');
+    classManager('switch_ver', 'focused', 'add');
 }
 
 if (avatar_decoration.enabled) {
@@ -59,12 +66,14 @@ click('switch_mode', function () {
         classManager('card', 'light-theme', 'remove');
         classManager('switch_mode', 'light', 'remove');
         classManager('av_to_left', 'light', 'remove');
-        getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
+        classManager('switch_ver', 'light', 'remove');
+        getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
     } else {
         classManager('card', 'light-theme', 'add');
         classManager('switch_mode', 'light', 'add');
         classManager('av_to_left', 'light', 'add');
-        getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
+        classManager('switch_ver', 'light', 'add');
+        getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
     }
 });
 
@@ -72,11 +81,21 @@ click('av_to_left', function () {
     if (classManager('_av', 'to-left', 'find')) {
         classManager('_av', 'to-left', 'remove');
         classManager('left-toggle', 'left-toggle', 'remove');
-        getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
+        getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
     } else {
         classManager('left-toggle', 'left-toggle', 'add');
         classManager('_av', 'to-left', 'add');
-        getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
+        getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
+    }
+});
+
+click('switch_ver', function () {
+    if (classManager('card', 'old_ver', 'find')) {
+        classManager('card', 'old_ver', 'remove');
+        classManager('switch_ver', 'focused', 'remove');
+    } else {
+        classManager('card', 'old_ver', 'add');
+        classManager('switch_ver', 'focused', 'add');
     }
 });
 
@@ -108,6 +127,8 @@ if (custom_profile_theme.enabled) {
     }
 
     getId('switch_mode').style.display = 'none';
+
+    getId('switch_ver').style.display = 'none';
 
     classManager('card', 'custom');
 

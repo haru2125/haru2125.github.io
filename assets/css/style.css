@@ -40,12 +40,21 @@ body {
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    transition: background .1s;
 }
 
 #container #card.light-theme {
     --profile-gradient-primary-color:hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%);
     --profile-gradient-secondary-color:hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%);
     background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-primary-color) 120px,var(--profile-gradient-secondary-color));
+}
+
+#container #card.old_ver {
+    background: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+}
+
+#container #card.old_ver.light-theme {
+    background: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
 }
 
 #container #card.custom.light-theme {
@@ -88,6 +97,14 @@ body {
     margin-top: -95px;
     z-index: 2;
     transition: left .3s;
+}
+
+#container #card:not(.light-theme, .custom).old_ver #_av {
+    border: 8px solid hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+}
+
+#container #card.light-theme.old_ver #_av {
+    border: 8px solid hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
 }
 
 #container #card #_av.to-left {
@@ -175,6 +192,11 @@ body {
     padding: 1rem 16px;
     display: flex;
     width: 100%;
+    transition: padding .1s;
+}
+
+#container #card.old_ver #_e1 {
+    padding: 0.8rem 8px;
 }
 
 #container #card #_e1 #username {
@@ -229,7 +251,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--v);
-    transition: max-width .3s;
+    transition: max-width .3s, margin-right .1s;
+}
+
+#container #card.old_ver .badges {
+    margin-right: 10px;
 }
 
 #container #card .badges.left-toggle {
@@ -479,12 +505,20 @@ body {
     display: none;
 }
 
-.btn:not(.btn-2) {
+.btn:not(.btn-2, .btn-3) {
     right: 15px;
 }
 
 .btn.btn-2 {
     left: 15px;
+}
+
+.btn.btn-3 {
+    left: 55px;
+}
+
+.btn.btn-3:not(.light).focused {
+    background-color: #000000;
 }
 
 .btn.light {
@@ -493,6 +527,10 @@ body {
 }
 
 .btn.light:hover {
+    opacity: 0.8;
+}
+
+.btn.btn-3.light.focused {
     opacity: 0.8;
 }
 
