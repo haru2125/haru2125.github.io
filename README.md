@@ -29,6 +29,10 @@ Profile Card Version Discord :)
 
 ![Avatar Decoration](https://user-images.githubusercontent.com/101871896/196020199-9b194293-13cb-4b39-a10a-286e9c34b864.png)
 
+- Switch to old version :
+
+![old ver](https://user-images.githubusercontent.com/101871896/196199874-ccc5b072-be65-4bfc-933c-1eb0213e286b.png)
+
 Demo : [Here](https://haru2125.github.io/)
 
 Demo (Custom) : [Here](https://mizuto2509.github.io/)
