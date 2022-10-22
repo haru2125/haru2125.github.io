@@ -1,7 +1,7 @@
 # haru2125.github.io
 Profile Card Version Discord
 
-**Current Version :** *v1.0.8.1*
+**Current Version :** *v1.0.9*
 
 - Dark Mode :
 
@@ -16,5 +16,3 @@ Profile Card Version Discord
 ![classic ver](https://user-images.githubusercontent.com/101871896/197207872-e61f447a-90cc-4236-87fd-c1d76411dfa7.png)
 
 Demo : [Here](https://haru2125.github.io/)
-
-Demo (Custom) : [Here](https://mizuto2509.github.io/)
