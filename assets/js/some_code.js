@@ -1,39 +1,15 @@
-const light_mode = false;
+import settings from '../../settings.json' assert { type: "json" };
 
-const old_card_ver = false;
-
-const custom_profile_theme = { // Custom Profile Theme Dark/Light mode
-    "enabled": false,
-    "border": "#3496ff",
-    "background": "#a8d0fb"
-};
-
-const avatar_decoration = {
-    "enabled": true,
-    "decoration_type": 4
-}
-
-const loading_effect = true;
-
-if (loading_effect) {
+if (settings.loading) {
     setTimeout(function () {
-        document.getElementById('load').classList.add('baymau');
+        document.getElementById('load').classList.add('hide');
     }, 2000);
 }
 
-// click('switch_mode', function () {
-//     if (document.getElementById('theme').classList.contains('own_mode')) {
-//         document.getElementById('theme').classList.remove('own_mode');
-//         this.innerHTML = mode_normal_btn;
-//     } else {
-//         document.getElementById('theme').classList.add('own_mode');
-//         this.innerHTML = "Go back to old mode";
-//     }
-// });
-
-if (light_mode) {
+if (settings.light_mode) {
     classManager('switch_mode', 'light');
     classManager('av_to_left', 'light', 'add');
+    classManager('switch_ver', 'light', 'add');
     getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
 } else {
     getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
@@ -45,14 +21,14 @@ if (classManager('_av', 'to-left', 'find')) {
     getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
 }
 
-if (old_card_ver) {
+if (settings.old_version) {
     classManager('card', 'old_ver', 'add');
     classManager('switch_ver', 'focused', 'add');
 }
 
-if (avatar_decoration.enabled) {
+if (settings.avatar_decoration.enabled) {
     classManager('_av_decoration', 'active', 'add');
-    getId('_av_decoration').setAttribute('decoration_type', avatar_decoration.decoration_type);
+    getId('_av_decoration').setAttribute('decoration_type', settings.avatar_decoration.type);
 }
 
 if (getId('left-toggle').getElementsByClassName('badge').length > 3) {
@@ -117,27 +93,8 @@ for (var i = 0; i < badges.length; i++) {
     badges[i].addEventListener('mouseleave', hover_tooltip_2, false);
 }
 
-if (light_mode) {
+if (settings.light_mode) {
     classManager('card', 'light-theme');
-}
-
-if (custom_profile_theme.enabled) {
-    if (!light_mode) {
-        classManager('card', 'dark-theme');
-    }
-
-    getId('switch_mode').style.display = 'none';
-
-    getId('switch_ver').style.display = 'none';
-
-    classManager('card', 'custom');
-
-    getId('card').setAttribute('style', 
-        '--p-bg-color:' + custom_profile_theme.background
-        + ';' +
-        '--p-b-color:' + custom_profile_theme.border
-        + ';'
-    );
 }
 
 function getId(id) {
