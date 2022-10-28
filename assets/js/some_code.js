@@ -2,15 +2,14 @@ import settings from '../../settings.json' assert { type: "json" };
 
 if (settings.loading) {
     setTimeout(function () {
-        document.getElementById('load').classList.add('hide');
+        classManager('load', 'hide');
     }, 2000);
 }
 
 if (settings.light_mode) {
     if (!settings.profile_theme.enabled) {
         classManager('switch_mode', 'light');
-        classManager('av_to_left', 'light', 'add');
-        classManager('switch_ver', 'light', 'add');
+        classManager('switch_ver', 'light');
         getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
     }
 } else {
@@ -20,12 +19,12 @@ if (settings.light_mode) {
 }
 
 if (settings.old_version) {
-    classManager('card', 'old_ver', 'add');
-    classManager('switch_ver', 'focused', 'add');
+    classManager('card', 'old_ver');
+    classManager('switch_ver', 'focused');
 }
 
 if (settings.avatar_decoration.enabled) {
-    classManager('_av_decoration', 'active', 'add');
+    classManager('_av_decoration', 'active');
     getId('_av_decoration').setAttribute('decoration_type', settings.avatar_decoration.type);
 }
 
@@ -48,14 +47,12 @@ click('switch_mode', function () {
     if (classManager('card', 'light-theme', 'find')) {
         classManager('card', 'light-theme', 'remove');
         classManager('switch_mode', 'light', 'remove');
-        classManager('av_to_left', 'light', 'remove');
         classManager('switch_ver', 'light', 'remove');
         getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
     } else {
-        classManager('card', 'light-theme', 'add');
-        classManager('switch_mode', 'light', 'add');
-        classManager('av_to_left', 'light', 'add');
-        classManager('switch_ver', 'light', 'add');
+        classManager('card', 'light-theme');
+        classManager('switch_mode', 'light');
+        classManager('switch_ver', 'light');
         getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
     }
 });
@@ -65,8 +62,8 @@ click('switch_ver', function () {
         classManager('card', 'old_ver', 'remove');
         classManager('switch_ver', 'focused', 'remove');
     } else {
-        classManager('card', 'old_ver', 'add');
-        classManager('switch_ver', 'focused', 'add');
+        classManager('card', 'old_ver');
+        classManager('switch_ver', 'focused');
     }
 });
 
