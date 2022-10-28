@@ -7,18 +7,16 @@ if (settings.loading) {
 }
 
 if (settings.light_mode) {
-    classManager('switch_mode', 'light');
-    classManager('av_to_left', 'light', 'add');
-    classManager('switch_ver', 'light', 'add');
-    getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
+    if (!settings.profile_theme.enabled) {
+        classManager('switch_mode', 'light');
+        classManager('av_to_left', 'light', 'add');
+        classManager('switch_ver', 'light', 'add');
+        getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
+    }
 } else {
-    getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
-}
-
-if (classManager('_av', 'to-left', 'find')) {
-    getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
-} else {
-    getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
+    if (!settings.profile_theme.enabled) {
+        getId('switch_mode').innerHTML = `<i class="fas fa-moon"></i>`;
+    }
 }
 
 if (settings.old_version) {
@@ -31,10 +29,19 @@ if (settings.avatar_decoration.enabled) {
     getId('_av_decoration').setAttribute('decoration_type', settings.avatar_decoration.type);
 }
 
-if (getId('left-toggle').getElementsByClassName('badge').length > 3) {
-    classManager('_av', 'to-left', 'add');
-    classManager('left-toggle', 'left-toggle', 'add');
-    getId('av_to_left').setAttribute('disabled', '');
+if (settings.profile_theme.enabled) {
+    classManager('card', 'profile_theme');
+
+    getId('switch_mode').style.display = 'none';
+
+    getId('switch_ver').style.display = 'none';
+
+    getId('card').setAttribute('style',
+        '--primary:' + settings.profile_theme.primary
+        + ';' +
+        '--accent:' + settings.profile_theme.accent 
+        + ';'
+    )
 }
 
 click('switch_mode', function () {
@@ -50,18 +57,6 @@ click('switch_mode', function () {
         classManager('av_to_left', 'light', 'add');
         classManager('switch_ver', 'light', 'add');
         getId('switch_mode').innerHTML = `<i class="fas fa-sun"></i>`;
-    }
-});
-
-click('av_to_left', function () {
-    if (classManager('_av', 'to-left', 'find')) {
-        classManager('_av', 'to-left', 'remove');
-        classManager('left-toggle', 'left-toggle', 'remove');
-        getId('av_to_left').innerHTML = `<i class="fas fa-align-center"></i>`;
-    } else {
-        classManager('left-toggle', 'left-toggle', 'add');
-        classManager('_av', 'to-left', 'add');
-        getId('av_to_left').innerHTML = `<i class="fas fa-align-left"></i>`;
     }
 });
 

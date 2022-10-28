@@ -45,7 +45,33 @@ body {
     transition: background .1s;
 }
 
-#container #card.light-theme {
+#container #card.profile_theme {
+    background: linear-gradient(var(--primary), var(--primary) 120px, var(--accent));
+}
+
+#container #card.profile_theme:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px; 
+    padding: 5px; 
+    width: 300px;
+    height: 512px;
+    top: -2.5px;
+    left: 0;
+    right: 0;
+    margin-left: auto; 
+    margin-right: auto; 
+    background:linear-gradient(var(--primary), var(--accent)); 
+    -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude; 
+    z-index: 3;
+}
+
+#container #card:not(.profile_theme).light-theme {
     --profile-gradient-primary-color:hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%);
     --profile-gradient-secondary-color:hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%);
     background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-primary-color) 120px,var(--profile-gradient-secondary-color));
@@ -60,47 +86,74 @@ body {
 }
 
 #container #card #card_inner {
-    border-radius: inherit;
     width: 100%;
     height: 100%;
 }
 
-#container #card ._img {
+#container #card.profile_theme #card_inner {
+    background-color: #00000099;
+}
+
+#container #card.profile_theme.light-theme #card_inner {
+    background-color: #ffffff99;
+}
+
+/* #container #card ._img {
+    background-image: var(--src);
+    background-size: cover;
+    background-position: center;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     z-index: 1;
     width: 100%;
-    height: 120px;
+    height: 110px;
+    min-height:110px;
     margin-top: -0.5px;
+}
+
+#container #card.profile_theme ._img {
+    height: 120px;
+    min-height: 120px;
+} */
+
+#container #card .banner {
+    z-index: 1;
+    margin-top: -0.5px;
+}
+
+#container #card .banner .banner_inner {
+    height: 120px;
+    min-height: 120px;
+    background-repeat:no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 0;
+}
+
+#container #card.profile_theme .banner {
+    position: relative;
+    margin-top: 2px;
+    border-radius: 0;
+    z-index: 2;
 }
 
 #container #card #_av {
     position: relative;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin-left: auto;
     margin-right:auto;
-    background-image: url('../img/avatar.jpg');
+    left: -91px;
+    top: 5px;
+    background-image: url('../img/avatar.webp');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    border: 8px solid var(--profile-gradient-primary-color);
     margin-top: -95px;
     z-index: 2;
     transition: left .3s;
-}
-
-#container #card:not(.light-theme).old_ver #_av {
-    border: 8px solid hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
-}
-
-#container #card.light-theme.old_ver #_av {
-    border: 8px solid hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
-}
-
-#container #card #_av.to-left {
-    left: -84px;
+    margin-bottom: 25px;
 }
 
 #container #card #_av_decoration {
@@ -112,8 +165,8 @@ body {
     display: block;
     width:100px;
     height: 100px;
-    margin-left: -8px;
-    margin-top: -8px;
+    margin-left: -11px;
+    top: -11px;
     z-index: 3;
 }
 
@@ -218,13 +271,23 @@ body {
 }
 
 #container #card #_e_bg {
+    position: relative;
     background-color: var(--v);
     margin:10px 16px 20px 16px;
     border-radius: 8px;
+    z-index: 4;
+}
+
+#container #card.profile_theme #_e_bg {
+    background-color: #00000099;
 }
 
 #container #card.light-theme #_e_bg {
     background-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
+}
+
+#container #card.profile_theme.light-theme #_e_bg {
+    background-color: #ffffff99;
 }
 
 #container #card #_e1 {
@@ -284,13 +347,21 @@ body {
     padding: 4px;
     margin-left: auto;
     margin-right: 15px;
-    margin-top: 12px;
+    margin-top: 4px;
     border-radius: 8px;
     max-width: 85px;
     display: flex;
     flex-wrap: wrap;
     background-color: var(--v);
     transition: max-width .3s, margin-right .1s;
+}
+
+#container #card.profile_theme .badges {
+    background-color: #00000099;
+}
+
+#container #card.profile_theme.light-theme .badges {
+    background-color: #ffffff99;
 }
 
 #container #card.old_ver .badges {
@@ -353,7 +424,7 @@ body {
 #container #card .badge .badge_tooltip {
     position: absolute;
     background-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 5px 10px;
     opacity: 0;
     pointer-events: none;
@@ -384,12 +455,12 @@ body {
     border-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%) transparent transparent transparent;
 }
 
-#container #card.light-theme .badge .badge_tooltip {
+#container #card:not(.profile_theme).light-theme .badge .badge_tooltip {
     color: hsl(240,calc(var(--saturation-factor, 1)*7.7%),2.5%);
     background-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
 }
 
-#container #card.light-theme .badge .badge_tooltip::after {
+#container #card:not(.profile_theme).light-theme .badge .badge_tooltip::after {
     border-color: hsl(210,calc(var(--saturation-factor, 1)*11.1%),92.9%) transparent transparent transparent;
 }
 
@@ -609,5 +680,28 @@ body {
 
     .btn.btn-3 {
         left: 48px;
+    }
+}
+
+@media (max-height:600px) {
+    #container #card #_e1 {
+        padding: 0.8rem 16px;
+    }
+
+    #container #card #_e2 #ab_1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #container #card #_e2 {
+        padding: 0.8rem 1rem;
+    }
+
+    #container #card #_e3 {
+        padding-bottom: 10px;
+    }
+
+    #container #card #_e3.have_divider {
+        margin-top: 13px;
     }
 }

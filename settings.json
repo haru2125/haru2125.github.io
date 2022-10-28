@@ -2,8 +2,14 @@
     "loading": true,
     "light_mode": false,
     "old_version": false,
+    "default_avatar_position": "left",
     "avatar_decoration": {
         "enabled": true,
         "type": 4
+    },
+    "profile_theme": {
+        "enabled": false,
+        "primary": "#25978e",
+        "accent": "#294b83"
     }
 }
