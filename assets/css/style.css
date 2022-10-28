@@ -624,11 +624,7 @@ body {
     left: 15px;
 }
 
-.btn.btn-3 {
-    left: 55px;
-}
-
-.btn.btn-3:not(.light).focused {
+.btn.btn-2:not(.light).focused {
     background-color: #000000;
 }
 
@@ -641,7 +637,7 @@ body {
     opacity: 0.8;
 }
 
-.btn.btn-3.light.focused {
+.btn.btn-2.light.focused {
     opacity: 0.8;
 }
 
@@ -670,16 +666,12 @@ body {
         top: 8px;
     }
 
-    .btn:not(.btn-2, .btn-3) {
+    .btn:not(.btn-2) {
         right: 8px;
     }
 
     .btn.btn-2 {
         left: 10px;
-    }
-
-    .btn.btn-3 {
-        left: 48px;
     }
 }
 
