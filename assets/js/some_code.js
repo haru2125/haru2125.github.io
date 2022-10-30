@@ -1,10 +1,36 @@
 import settings from '../../settings.json' assert { type: "json" };
 
 if (settings.loading) {
-    setTimeout(function () {
-        classManager('load', 'hide');
-    }, 2000);
+    if (settings.load_type === "1") {
+        classManager('load', 'hide_no_effect', 'remove');
+    } else if (settings.load_type === "2") {
+        classManager('load_2', 'hide_no_animation', 'remove');
+    }
 }
+
+document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+        if (settings.loading) {
+            if (settings.load_type === "1") {
+                setTimeout(function () {
+                    classManager('load', 'hide');
+                }, 2000);
+            } else if (settings.load_type === "2") {
+                setTimeout(function () {
+                    classManager('load_bar', 'success');
+        
+                    setTimeout(function () {
+                        classManager('load_2', 'hide');
+        
+                        setTimeout(function () {
+                            classManager('load_bar', 'success', 'remove');
+                        }, 400);
+                    }, 200);
+                }, 400);
+            }
+        }
+    }
+};
 
 if (settings.light_mode) {
     if (!settings.profile_theme.enabled) {
@@ -28,7 +54,7 @@ if (settings.avatar_decoration.enabled) {
     getId('_av_decoration').setAttribute('decoration_type', settings.avatar_decoration.type);
 }
 
-if (settings.profile_theme.enabled) {
+if (settings.profile_theme.enabled && !settings.old_version) {
     classManager('card', 'profile_theme');
 
     getId('switch_mode').style.display = 'none';

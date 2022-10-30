@@ -150,7 +150,7 @@ body {
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    margin-top: -95px;
+    margin-top: -96px;
     z-index: 2;
     transition: left .3s;
     margin-bottom: 25px;
@@ -533,6 +533,10 @@ body {
     padding-bottom: 15px;
 }
 
+#container #card.old_ver #_e3 {
+    padding-bottom: 5px;
+}
+
 #container #card #_e3 #social_link {
     font-weight: 700;
     font-size: 12px;
@@ -589,8 +593,43 @@ body {
     pointer-events: none;
 }
 
+#load.hide_no_effect {
+    display: none;
+}
+
 #load #load_ani {
     margin: auto;
+}
+
+#load_2 {
+    z-index: 999;
+    background-color: #00000036;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+#load_2.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#load_2.hide_no_animation {
+    display: none;
+}
+
+#load_2 #load_bar {
+    width: 0%;
+    height: 3px;
+    background-color: rgb(21, 168, 156);
+    transition: width .2s;
+}
+
+#load_2 #load_bar.success {
+    width: 100%;
 }
 
 .btn {
