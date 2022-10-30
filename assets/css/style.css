@@ -127,7 +127,8 @@ body {
     background-repeat:no-repeat;
     background-position: 50%;
     background-size: cover;
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 #container #card.profile_theme .banner {
