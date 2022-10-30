@@ -1,19 +1,19 @@
 # haru2125.github.io
 Profile Card Version Discord
 
-**Current Version :** *v1.1.0*
+**Current Version :** *v1.1.1*
 
 - Dark Mode :
 
-![dark mode](https://user-images.githubusercontent.com/101871896/198653592-5614cc9f-cf2e-469a-a877-0c78105f1f8d.png)
+![dark mode](https://user-images.githubusercontent.com/101871896/198865031-f949cafd-28b8-4c09-b662-2641b75985ea.png)
 
 - Light Mode :
 
-![light mode](https://user-images.githubusercontent.com/101871896/198653821-72ffde63-50e8-4e2e-9681-b4dd24c80d84.png)
+![light mode](https://user-images.githubusercontent.com/101871896/198865045-8be327c1-de78-46ee-b089-324198afbafa.png)
 
 - Classic Version :
 
-![classic version](https://user-images.githubusercontent.com/101871896/198656522-4ff82cbc-a98b-434a-8cac-587e1349bb0c.png)
+![classic version](https://user-images.githubusercontent.com/101871896/198865064-f8513d5d-e2d4-4bb3-96b0-04b63ce73ba5.png)
 
 - Profile Theme :
 
