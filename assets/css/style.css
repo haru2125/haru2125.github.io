@@ -39,7 +39,7 @@ body {
 #container #card {
     width: 300px;
     background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-primary-color) 120px,var(--profile-gradient-secondary-color));
-    border-radius: 8px;
+    border-radius: 12.5px;
     display: flex;
     flex-direction: column;
     transition: background .1s;
@@ -56,7 +56,7 @@ body {
     border-radius: 8px; 
     padding: 5px; 
     width: 300px;
-    height: 512px;
+    height: auto;
     top: -2.5px;
     left: 0;
     right: 0;
@@ -127,8 +127,8 @@ body {
     background-repeat:no-repeat;
     background-position: 50%;
     background-size: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 #container #card.profile_theme .banner {
@@ -147,7 +147,7 @@ body {
     margin-right:auto;
     left: -91px;
     top: 5px;
-    background-image: url('../img/avatar.webp');
+    background-image: url('../img/avatar.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -280,7 +280,7 @@ body {
 }
 
 #container #card.profile_theme #_e_bg {
-    background-color: #00000099;
+    background-color: #00000073;
 }
 
 #container #card.light-theme #_e_bg {
@@ -358,7 +358,7 @@ body {
 }
 
 #container #card.profile_theme .badges {
-    background-color: #00000099;
+    background-color: #00000073;
 }
 
 #container #card.profile_theme.light-theme .badges {
@@ -515,8 +515,8 @@ body {
     background-color: hsla(180, 35.8%, 31.2%, 0.16);
 }
 
-#container #card.dark-theme .divider {
-    background-color: hsla(0, 0%, 100%, 0.24);
+#container #card.profile_theme .divider {
+    background-color: rgba(204, 204, 204, 0.042);
 }
 
 #container #card #_e2 #about_me {
