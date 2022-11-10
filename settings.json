@@ -9,7 +9,7 @@
         "type": 4
     },
     "profile_theme": {
-        "enabled": true,
+        "enabled": false,
         "primary": "#03a0ff",
         "accent": "#294b83"
     }
