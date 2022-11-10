@@ -127,6 +127,11 @@ body {
     background-repeat:no-repeat;
     background-position: 50%;
     background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#container #card.profile_theme .banner .banner_inner {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
