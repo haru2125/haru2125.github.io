@@ -69,6 +69,10 @@ if (settings.profile_theme.enabled && !settings.old_version) {
     )
 }
 
+if (getId('badges').childElementCount >= 4) {
+    classManager('badges', 'has-4-child');
+}
+
 click('switch_mode', function () {
     if (classManager('card', 'light-theme', 'find')) {
         classManager('card', 'light-theme', 'remove');

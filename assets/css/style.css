@@ -362,6 +362,10 @@ body {
     transition: max-width .3s, margin-right .1s;
 }
 
+#container #card .badges.has-4-child {
+    max-width: 110px;
+}
+
 #container #card.profile_theme .badges {
     background-color: #00000073;
 }
@@ -394,7 +398,7 @@ body {
 #container #card .badge #badge_2{
     width: 23px;
     height: 23px;
-    background-image: url('../img/hypersquad_badge.svg');
+    background-image: url('../img/active_dev_badge.svg');
     background-size: cover;
     margin: auto;
     cursor: pointer;
@@ -403,7 +407,7 @@ body {
 #container #card .badge #badge_3{
     width: 23px;
     height: 23px;
-    background-image: url('../img/nitro_badge.svg');
+    background-image: url('../img/hypersquad_badge.svg');
     background-size: cover;
     margin: auto;
     cursor: pointer;
@@ -412,7 +416,7 @@ body {
 #container #card .badge #badge_4{
     width: 23px;
     height: 23px;
-    background-image: url('../img/boost_badge.svg');
+    background-image: url('../img/nitro_badge.svg');
     background-size: cover;
     margin: auto;
     cursor: pointer;
@@ -430,17 +434,18 @@ body {
 #container #card .badge .badge_tooltip {
     position: absolute;
     background-color: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 5px 10px;
     opacity: 0;
     pointer-events: none;
-    transition:opacity .07s, transform .08s;
+    transition:opacity .07s, transform .06s;
     font-size: 14px;
-    transform: translateX(-50%) scale(0.9);
-    margin-top: -55px;
+    transform: translateX(-50%) scale(0.96);
+    margin-top: -45px;
     margin-left: 13px;
     z-index: 9;
     text-align: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.24);
 }
 
 #container #card .badge_tooltip.show {
