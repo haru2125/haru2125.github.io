@@ -152,7 +152,7 @@ body {
     margin-right:auto;
     left: -91px;
     top: 5px;
-    background-image: url('../img/avatar.jpg');
+    background-image: url('../img/avatar.png');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -492,7 +492,7 @@ body {
 #container #card #_e2 #ab_1 {
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 21px;
     margin-top: 15px;
     margin-bottom: 15px;
     text-align: center;
